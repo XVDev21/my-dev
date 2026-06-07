@@ -2,13 +2,14 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script"
 import "./globals.css"
-import Script from "next/script";
+import { ThemeProvider } from "@/components/theme-provider"
 
 const _inter = Inter({ subsets: ["latin"] })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
-const GTM_ID = "GTM-PV7CQKN4"; // provided by Google Tag Manager
+const GTM_ID = "GTM-PV7CQKN4" // provided by Google Tag Manager
 
 export const metadata: Metadata = {
   title: "Xyrel Vaughn Delos Santos | IT Specialist & Full-Stack Developer",
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* for Google Analytics */}
         <Script
@@ -67,8 +68,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`font-sans antialiased`}>
-        
+      <body className="font-sans antialiased">
         {/* for Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -79,8 +79,10 @@ export default function RootLayout({
           />
         </noscript>
 
-        {children}
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

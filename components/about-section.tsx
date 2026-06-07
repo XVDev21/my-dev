@@ -2,28 +2,34 @@
 
 import { useInView } from "@/hooks/use-in-view"
 import { Card, CardContent } from "@/components/ui/card"
-import { Briefcase, Code2, Cpu } from "lucide-react"
+import { Briefcase, Code2, SearchCheck, Workflow } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 const stats = [
   {
     icon: Briefcase,
-    value: "3+",
+    value: "5+",
     label: "Years Experience",
-    description: "Development & Technical IT",
+    description: "Development and technical IT",
   },
   {
     icon: Code2,
-    value: "Multi-Stack",
+    value: "Cross-Discipline",
     label: "Expertise",
-    description: "Python, Vue, Laravel, WordPress",
+    description: "Web systems, support, and product thinking",
   },
   {
-    icon: Cpu,
-    value: "Hardware",
-    label: "Real-Time IoT Integrations",
-    description: "Arduino, Raspberry Pi",
+    icon: Workflow,
+    value: "Systems Innovation",
+    label: "Focus",
+    description: "Leaning toward innovative solutions",
+  },
+  {
+    icon: SearchCheck,
+    value: "Gap Analysis",
+    label: "Business Advisory",
+    description: "Locating operational gaps and shaping scalable solutions",
   },
 ]
 
@@ -31,14 +37,19 @@ export function AboutSection() {
   const { ref, isInView } = useInView({ threshold: 0.2 })
 
   return (
-    <section id="about" className="py-24 bg-card" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="relative isolate overflow-hidden bg-card py-24" ref={ref}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(22,101,52,0.08),transparent_24%),radial-gradient(circle_at_85%_15%,rgba(202,138,4,0.08),transparent_22%),linear-gradient(135deg,transparent_0%,transparent_48%,rgba(255,255,255,0.45)_49%,transparent_50%,transparent_100%)] dark:bg-[radial-gradient(circle_at_15%_20%,rgba(255,253,143,0.08),transparent_24%),radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.06),transparent_22%),linear-gradient(135deg,transparent_0%,transparent_48%,rgba(255,255,255,0.08)_49%,transparent_50%,transparent_100%)]"
+      />
+      <div aria-hidden="true" className="pointer-events-none absolute left-0 top-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl dark:bg-white/5" />
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="space-y-6">
             <div
               className={cn(
-                "relative w-48 h-48 mx-auto lg:hidden rounded-2xl overflow-hidden border-4 border-secondary/30 shadow-xl transition-all duration-700",
-                isInView ? "opacity-100 scale-100" : "opacity-0 scale-95",
+                "relative mx-auto h-48 w-48 overflow-hidden rounded-2xl border-4 border-secondary/30 shadow-xl transition-all duration-700 lg:hidden",
+                isInView ? "scale-100 opacity-100" : "scale-95 opacity-0",
               )}
             >
               <Image src="/my-dev/Me4 - tinified.png" alt="Xyrel Vaughn Delos Santos" fill className="object-cover" />
@@ -47,82 +58,79 @@ export function AboutSection() {
             <div className="space-y-4">
               <p
                 className={cn(
-                  "text-secondary font-mono text-sm tracking-wider transition-all duration-700",
-                  isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+                  "font-mono text-sm tracking-wider text-secondary transition-all duration-700",
+                  isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
                 )}
               >
-                {"About Me"}
+                About Me
               </p>
 
-                <div
-              className={cn(
-                "hidden lg:block relative mx-auto transition-all duration-700",
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-              )}
-            >
-              <div className="relative w-64 h-64 mx-auto">
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-xl" />
-                <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-secondary/30 shadow-2xl">
-                  <Image
-                    src="/my-dev/Me4 - tinified.png"
-                    alt="Xyrel Vaughn Delos Santos"
-                    fill
-                    className="object-cover"
-                  />
+              <div
+                className={cn(
+                  "relative mx-auto hidden transition-all duration-700 lg:block",
+                  isInView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0",
+                )}
+              >
+                <div className="relative mx-auto h-64 w-64">
+                  <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
+                  <div className="relative h-full w-full overflow-hidden rounded-2xl border-4 border-secondary/30 shadow-2xl">
+                    <Image
+                      src="/my-dev/Me4 - tinified.png"
+                      alt="Xyrel Vaughn Delos Santos"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="absolute -left-2 -top-2 h-8 w-8 rounded-tl-lg border-l-4 border-t-4 border-accent" />
+                  <div className="absolute -bottom-2 -right-2 h-8 w-8 rounded-br-lg border-b-4 border-r-4 border-accent" />
                 </div>
-                {/* Decorative corner accents */}
-                <div className="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-accent rounded-tl-lg" />
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-r-4 border-accent rounded-br-lg" />
               </div>
-            </div>
 
               <h2
                 className={cn(
-                  "text-3xl sm:text-4xl font-bold text-primary transition-all duration-700 delay-100",
-                  isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+                  "text-3xl font-bold text-primary transition-all duration-700 delay-100 sm:text-4xl",
+                  isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
                 )}
               >
-                Crafting Smart Solutions with Precision and Purpose.
+                Crafting smart solutions with precision and purpose.
               </h2>
             </div>
 
             <div
               className={cn(
-                "space-y-4 text-foreground/70 leading-relaxed transition-all duration-700 delay-200",
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+                "space-y-4 leading-relaxed text-foreground/70 transition-all duration-700 delay-200",
+                isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
               )}
             >
               <p>
-                I'm <strong className="text-primary">Xyrel Vaughn Delos Santos</strong>, a results-driven developer and
-                IT specialist with a unique blend of software engineering experience and hands-on systems administration
-                expertise.
+                I&apos;m <strong className="text-primary">Xyrel Vaughn Delos Santos</strong>, a developer and IT
+                specialist who works across web apps, WordPress, systems support, and business-focused advisory with a
+                product-minded approach.
               </p>
               <p>
-                From building custom web applications and WordPress solutions to deploying small-scale networks and
-                troubleshooting critical technical issues, I deliver reliable, efficient, and user-centered solutions.
+                The goal is always the same: make the interface clearer, the workflow easier, and the system more
+                dependable for the people who use it every day.
               </p>
               <p>
-                What truly sets me apart is my <strong className="text-secondary">versatility</strong> combining
-                creative problem-solving, clean coding practices, and a strong operational mindset to support teams and
-                build impactful digital systems.
+                My edge is versatility, combining software engineering, operational thinking, practical problem-solving,
+                and a broader view of where businesses can improve at scale.
               </p>
             </div>
           </div>
 
           <div className="space-y-6">
-
             <div className="grid gap-4">
               {stats.map((stat, index) => (
                 <Card
                   key={stat.label}
                   className={cn(
-                    "bg-secondary/10 border-secondary/30 hover:border-accent/50 transition-all duration-500 group",
-                    isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8",
+                    "group border-secondary/30 bg-secondary/10 transition-all duration-500 hover:border-accent/50",
+                    isInView ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0",
                   )}
                   style={{ transitionDelay: `${(index + 3) * 100}ms` }}
                 >
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-secondary text-secondary-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                  <CardContent className="flex items-center gap-4 p-6">
+                    <div className="rounded-lg bg-secondary p-3 text-secondary-foreground transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
                       <stat.icon className="h-6 w-6" />
                     </div>
                     <div>

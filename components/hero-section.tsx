@@ -90,12 +90,11 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      <canvas ref={canvasRef} className="pointer-events-none absolute inset-0" />
 
-      {/* Decorative circuit lines */}
-      <div className="absolute top-20 right-10 w-32 h-32 opacity-20">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
+      <div className="absolute right-10 top-20 h-32 w-32 opacity-20" aria-hidden="true">
+        <svg viewBox="0 0 100 100" className="h-full w-full">
           <path
             d="M10 50 H40 V20 H70 V50 H90"
             stroke="#4C763B"
@@ -108,8 +107,8 @@ export function HeroSection() {
         </svg>
       </div>
 
-      <div className="absolute bottom-20 left-10 w-24 h-24 opacity-20">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
+      <div className="absolute bottom-20 left-10 h-24 w-24 opacity-20" aria-hidden="true">
+        <svg viewBox="0 0 100 100" className="h-full w-full">
           <path
             d="M20 80 V50 H50 V20 H80"
             stroke="#4C763B"
@@ -121,54 +120,56 @@ export function HeroSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-secondary font-mono text-sm tracking-wider opacity-0 animate-fade-up">
-                {"Hello, I am"}
+              <p className="animate-fade-up text-sm tracking-wider text-secondary opacity-0 font-mono">
+                Hello, I&apos;m
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight opacity-0 animate-fade-up delay-100">
-                Building Systems.
+              <h1 className="animate-fade-up text-4xl font-bold leading-tight text-primary opacity-0 delay-100 sm:text-5xl lg:text-6xl">
+                Building systems.
                 <br />
-                <span className="text-secondary">Solving Problems.</span>
+                <span className="text-secondary">Solving problems.</span>
                 <br />
-                Delivering Impact.
+                Delivering impact.
               </h1>
-              <p className="text-lg text-foreground/70 max-w-lg opacity-0 animate-fade-up delay-200">
-                Full-Stack Developer • IT Specialist • System & Web Solutions Builder
+              <p className="animate-fade-up max-w-lg text-lg text-foreground/70 opacity-0 delay-200">
+                Full-stack developer and IT specialist focused on practical web systems, cleaner interfaces, and work
+                that holds up in real use.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 opacity-0 animate-fade-up delay-300">
-              <a href="/my-dev/Xyrel Vaughn Delos Santos - Updated.pdf" download="Xyrel-Vaughn-Delos-Santos.pdf" className="download-resume">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 group">
-                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                Download Résumé
+            <div className="animate-fade-up flex flex-wrap gap-4 opacity-0 delay-300">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 group">
+                <a href="/my-dev/Xyrel Vaughn Delos Santos - Updated.pdf" download="Xyrel-Vaughn-Delos-Santos.pdf">
+                  <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                  Download Resume
+                </a>
               </Button>
-              </a>
 
-              <a href="mailto:delossantosxyrelvaughn@gmail.com">
               <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="border-2 border-accent bg-accent text-accent-foreground hover:bg-accent/80 animate-glow"
               >
-                <Mail className="mr-2 h-4 w-4" />
-                Contact Me
+                <a href="mailto:delossantosxyrelvaughn@gmail.com">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Contact Me
+                </a>
               </Button>
-              </a>
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="hidden justify-center lg:flex">
             <div className="relative">
-              <div className="w-72 h-72 rounded-full bg-gradient-to-br from-primary to-secondary opacity-20 animate-float" />
+              <div className="h-72 w-72 rounded-full bg-gradient-to-br from-primary to-secondary opacity-20 animate-float" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 rounded-full border-4 border-dashed border-accent/50 animate-[spin_20s_linear_infinite]" />
+                <div className="h-64 w-64 rounded-full border-4 border-dashed border-accent/50 animate-[spin_20s_linear_infinite]" />
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-56 h-56 rounded-full overflow-hidden border-4 border-secondary/50 shadow-2xl">
+                <div className="relative h-56 w-56 overflow-hidden rounded-full border-4 border-secondary/50 shadow-2xl">
                   <Image
                     src="/my-dev/Me4 - tinified.png"
                     alt="Xyrel Vaughn Delos Santos - IT Specialist"
@@ -182,12 +183,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up delay-500">
+        <div className="animate-fade-up absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 delay-500">
           <a
             href="#about"
-            className="flex flex-col items-center gap-2 text-foreground/50 hover:text-primary transition-colors"
+            className="flex flex-col items-center gap-2 text-foreground/50 transition-colors hover:text-primary"
           >
-            <span className="text-xs font-mono">Scroll Down</span>
+            <span className="font-mono text-xs">Scroll Down</span>
             <ArrowDown className="h-4 w-4 animate-bounce" />
           </a>
         </div>
