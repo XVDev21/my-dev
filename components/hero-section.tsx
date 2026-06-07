@@ -171,7 +171,7 @@ export function HeroSection() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative h-56 w-56 overflow-hidden rounded-full border-4 border-secondary/50 shadow-2xl">
                   <Image
-                    src="/my-dev/Me4 - tinified.png"
+                    src="/my-dev/Me4 - tinified.jpg"
                     alt="Xyrel Vaughn Delos Santos - IT Specialist"
                     fill
                     className="object-cover"

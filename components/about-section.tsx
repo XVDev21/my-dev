@@ -52,7 +52,7 @@ export function AboutSection() {
                 isInView ? "scale-100 opacity-100" : "scale-95 opacity-0",
               )}
             >
-              <Image src="/my-dev/Me4 - tinified.png" alt="Xyrel Vaughn Delos Santos" fill className="object-cover" />
+              <Image src="/my-dev/Me4 - tinified.jpg" alt="Xyrel Vaughn Delos Santos" fill className="object-cover" />
             </div>
 
             <div className="space-y-4">
@@ -75,7 +75,7 @@ export function AboutSection() {
                   <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
                   <div className="relative h-full w-full overflow-hidden rounded-2xl border-4 border-secondary/30 shadow-2xl">
                     <Image
-                      src="/my-dev/Me4 - tinified.png"
+                      src="/my-dev/Me4 - tinified.jpg"
                       alt="Xyrel Vaughn Delos Santos"
                       fill
                       className="object-cover"
